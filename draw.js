@@ -2,6 +2,7 @@
     let canvas = document.querySelector(".canvas"),
         context = canvas.getContext("2d"),
         canvasPos = canvas.getBoundingClientRect(),
+        clicks = 1;
         dotCount = 1,
         dots = {
             1: {
@@ -30,6 +31,8 @@
             }
         };
         
+        let  lastDot = { x: 250,
+                         y:  250};
         
         alert("Click anywhere to start")
         function draw(event){
@@ -37,29 +40,27 @@
             dotY = event.clientY - canvasPos.top;
             
             
-            if(dotCount <= 6) {
-                alert("Selected position " + dotCount);
-                context.fillStyle = "white";
-                context.fillRect(dotX, dotY, 20, 20);
-                dots[dotCount].x = dotX;
-                dots[dotCount].y = dotY;
-                dotCount++;
-                console.log(dotCount);
-            } 
+                if(dotCount <= 6) {
+                    alert("Selected position " + dotCount);
+                    context.fillStyle = "red";
+                    context.fillRect(dotX, dotY, 5, 5);
+                    dots[dotCount].x = dotX;
+                    dots[dotCount].y = dotY;
+                    dotCount++;
+                    console.log(dotCount);
+                } 
 
-            if(dotCount > 6){
-                for(let i = 0; i < 1; i++) {
-                   let  randomDotX = Math.floor(Math.random()*4000),
-                        randomDotY = Math.floor(Math.random()*2000),
-                        randomDot = { x: randomDotX,
-                                      y: randomDotY };
-                    half(Math.floor(Math.random()*6)+1);            
-                    function half(selectedDot) {
-                        let valX = (dots[selectedDot].x - randomDot.x)/2,
-                            valY = (dots[selectedDot].y - randomDot.y)/2;
-                        context.fillStyle = "#fff";
-                        context.fillRect(randomDot.x, randomDot.y, 10, 10);
-                        context.fillRect(randomDot.x + valX, randomDot.y + valY, 10, 10);
+                if(dotCount > 6){
+                    for(let i = 0; i < clicks; i++) {
+                        half(Math.floor(Math.random()*6)+1);            
+                        function half(selectedDot) {
+                            let valX = (dots[selectedDot].x - lastDot.x)/2,
+                                valY = (dots[selectedDot].y - lastDot.y)/2;
+                            context.fillStyle = "#fff";
+                            context.fillRect(lastDot.x, lastDot.y, 1,1);
+                            context.fillRect(lastDot.x + valX, lastDot.y + valY, 1, 1);
+                            lastDot.x += valX;
+                            lastDot.y += valY;
                     }
                 }
             }
