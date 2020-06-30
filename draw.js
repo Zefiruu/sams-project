@@ -2,7 +2,7 @@
     let canvas = document.querySelector(".canvas"),
         context = canvas.getContext("2d"),
         canvasPos = canvas.getBoundingClientRect(),
-        clicks = 1;
+        clicks = 4000;
         dotCount = 1,
         dots = {
             1: {
@@ -16,18 +16,18 @@
             3: {
                 x: 0,
                 y: 0
-            },
-            4: {
-                x: 0,
-                y: 0
-            },
-            5: {
-                x: 0,
-                y: 0
-            },
-            6: {
-                x: 0,
-                y: 0
+            // },
+            // 4: {
+            //     x: 0,
+            //     y: 0
+            // },
+            // 5: {
+            //     x: 0,
+            //     y: 0
+            // },
+            // 6: {
+            //     x: 0,
+            //     y: 0
             }
         };
         
@@ -40,7 +40,7 @@
             dotY = event.clientY - canvasPos.top;
             
             
-                if(dotCount <= 6) {
+                if(dotCount <= 3) {
                     alert("Selected position " + dotCount);
                     context.fillStyle = "red";
                     context.fillRect(dotX, dotY, 5, 5);
@@ -50,9 +50,9 @@
                     console.log(dotCount);
                 } 
 
-                if(dotCount > 6){
+                if(dotCount > 3){
                     for(let i = 0; i < clicks; i++) {
-                        half(Math.floor(Math.random()*6)+1);            
+                        half(Math.floor(Math.random()*3)+1);            
                         function half(selectedDot) {
                             let valX = (dots[selectedDot].x - lastDot.x)/2,
                                 valY = (dots[selectedDot].y - lastDot.y)/2;
