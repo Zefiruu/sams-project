@@ -16,10 +16,10 @@
             3: {
                 x: 0,
                 y: 0
-            // },
-            // 4: {
-            //     x: 0,
-            //     y: 0
+            },
+            4: {
+                x: 0,
+                y: 0
             // },
             // 5: {
             //     x: 0,
@@ -52,7 +52,7 @@
 
                 if(dotCount > 3){
                     for(let i = 0; i < clicks; i++) {
-                        half(Math.floor(Math.random()*3)+1);            
+                        half(Math.floor(Math.random()*4)+1);            
                         function half(selectedDot) {
                             let valX = (dots[selectedDot].x - lastDot.x)/2,
                                 valY = (dots[selectedDot].y - lastDot.y)/2;
