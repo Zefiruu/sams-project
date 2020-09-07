@@ -40,7 +40,7 @@
             dotY = event.clientY - canvasPos.top;
             
             
-                if(dotCount <= 3) {
+                if(dotCount <= 4) {
                     alert("Selected position " + dotCount);
                     context.fillStyle = "red";
                     context.fillRect(dotX, dotY, 5, 5);
@@ -50,7 +50,7 @@
                     console.log(dotCount);
                 } 
 
-                if(dotCount > 3){
+                if(dotCount > 4){
                     for(let i = 0; i < clicks; i++) {
                         half(Math.floor(Math.random()*4)+1);            
                         function half(selectedDot) {
