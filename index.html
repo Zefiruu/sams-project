@@ -7,6 +7,19 @@
 </head>
 <body>
     <canvas class="canvas" height="500" width="1000" style="background-color:#1f1616"  onclick="draw(event)"></canvas>
+    <section class="interactive">
+        <br>
+        <button onclick='start()'>Start</button>
+        <button onclick='stop()'>Stop</button>
+        <br>
+        <!-- <p>Dot Quantity:</p>
+        <input type="text" name="dotQtyInput" placeholder='3' id="dotQtyInput"> -->
+        <br>
+        <p>Delay</p>
+        <br>
+        <input type="range" name="speedSlider" min="1" max="200" value="100" onclick="" id="speedSlider">
+        <p id="dotCount"></p>
+    </section>
     <script src="draw.js"></script>
 </body>
 </html>
